@@ -2,30 +2,46 @@
 
 [Mindex](https://usemindex.dev) is an AI-powered knowledge base for developers. Store your documents, and let AI organize, connect, and retrieve them using semantic search and knowledge graphs (GraphRAG).
 
-This repository contains setup instructions and configuration examples for using Mindex as an MCP (Model Context Protocol) server with Claude, Cursor, Codex, and other AI tools.
+## Install
+
+```bash
+claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+  --header "Authorization: Bearer sk-your-api-key-here"
+```
+
+> Get your API key at [usemindex.dev](https://usemindex.dev) — Settings > API Keys
 
 ## Quick Start
 
-### 1. Get your API Key
+### Option 1: CLI one-liner (Claude Code, Cursor, Windsurf)
 
-Sign up at [usemindex.dev](https://usemindex.dev), create an organization, then go to **Settings > API Keys** and create a new key (starts with `sk-`).
+```bash
+claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+  --header "Authorization: Bearer sk-your-api-key-here"
+```
 
-### 2. Configure your AI tool
+### Option 2: JSON config file
 
-Add Mindex to your MCP configuration:
+Add to `.mcp.json` (Claude Code), `.cursor/mcp.json` (Cursor), or `~/.windsurf/mcp.json` (Windsurf):
 
 ```json
 {
   "mcpServers": {
     "mindex": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://api.usemindex.dev/mcp",
       "headers": {
-        "Authorization": "Bearer sk-your-api-key-here"
+        "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
     }
   }
 }
+```
+
+Set your key as an environment variable:
+
+```bash
+export MINDEX_API_KEY="sk-your-api-key-here"
 ```
 
 See [Setup Guides](#setup-guides) below for tool-specific instructions.
@@ -90,25 +106,33 @@ Upload a text document into a namespace. The document will be automatically proc
 
 ## Setup Guides
 
-### Claude Code (CLI)
+### Claude Code
 
-Add to your project's `.mcp.json`:
+```bash
+# Project-scoped (recommended)
+claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+  --header "Authorization: Bearer sk-your-api-key-here"
+
+# Or globally (all projects)
+claude mcp add --transport http --scope user mindex https://api.usemindex.dev/mcp \
+  --header "Authorization: Bearer sk-your-api-key-here"
+```
+
+Or add to `.mcp.json` at your project root:
 
 ```json
 {
   "mcpServers": {
     "mindex": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://api.usemindex.dev/mcp",
       "headers": {
-        "Authorization": "Bearer sk-your-api-key-here"
+        "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
     }
   }
 }
 ```
-
-Or configure globally at `~/.claude/mcp.json`.
 
 ### Claude Desktop
 
@@ -116,21 +140,26 @@ Go to **Settings > Integrations > MCP Servers** and add:
 
 - **Name:** Mindex
 - **URL:** `https://api.usemindex.dev/mcp`
-- **Transport:** Streamable HTTP
+- **Transport:** HTTP
 - **Headers:** `Authorization: Bearer sk-your-api-key-here`
 
 ### Cursor
 
-Add to `.cursor/mcp.json` in your project root:
+```bash
+claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+  --header "Authorization: Bearer sk-your-api-key-here"
+```
+
+Or add to `.cursor/mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "mindex": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://api.usemindex.dev/mcp",
       "headers": {
-        "Authorization": "Bearer sk-your-api-key-here"
+        "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
     }
   }
@@ -145,10 +174,10 @@ Add to your MCP configuration:
 {
   "mcpServers": {
     "mindex": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://api.usemindex.dev/mcp",
       "headers": {
-        "Authorization": "Bearer sk-your-api-key-here"
+        "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
     }
   }
@@ -163,10 +192,10 @@ Add to `~/.windsurf/mcp.json`:
 {
   "mcpServers": {
     "mindex": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://api.usemindex.dev/mcp",
       "headers": {
-        "Authorization": "Bearer sk-your-api-key-here"
+        "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
     }
   }
@@ -213,7 +242,7 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 ## Protocol Details
 
-- **Transport:** Streamable HTTP (MCP spec 2025-03-26)
+- **Transport:** HTTP (Streamable HTTP, MCP spec 2025-03-26)
 - **Protocol:** JSON-RPC 2.0
 - **Endpoint:** `POST https://api.usemindex.dev/mcp`
 - **Content-Type:** `application/json`

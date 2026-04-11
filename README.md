@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+claude mcp add --transport http mindex https://mcp.usemindex.dev \
   --header "Authorization: Bearer sk-your-api-key-here"
 ```
 
@@ -16,7 +16,7 @@ claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
 ### Option 1: CLI one-liner (Claude Code, Cursor, Windsurf)
 
 ```bash
-claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+claude mcp add --transport http mindex https://mcp.usemindex.dev \
   --header "Authorization: Bearer sk-your-api-key-here"
 ```
 
@@ -29,7 +29,7 @@ Add to `.mcp.json` (Claude Code), `.cursor/mcp.json` (Cursor), or `~/.windsurf/m
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
@@ -110,11 +110,11 @@ Upload a text document into a namespace. The document will be automatically proc
 
 ```bash
 # Project-scoped (recommended)
-claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+claude mcp add --transport http mindex https://mcp.usemindex.dev \
   --header "Authorization: Bearer sk-your-api-key-here"
 
 # Or globally (all projects)
-claude mcp add --transport http --scope user mindex https://api.usemindex.dev/mcp \
+claude mcp add --transport http --scope user mindex https://mcp.usemindex.dev \
   --header "Authorization: Bearer sk-your-api-key-here"
 ```
 
@@ -125,7 +125,7 @@ Or add to `.mcp.json` at your project root:
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
@@ -139,14 +139,14 @@ Or add to `.mcp.json` at your project root:
 Go to **Settings > Integrations > MCP Servers** and add:
 
 - **Name:** Mindex
-- **URL:** `https://api.usemindex.dev/mcp`
+- **URL:** `https://mcp.usemindex.dev`
 - **Transport:** HTTP
 - **Headers:** `Authorization: Bearer sk-your-api-key-here`
 
 ### Cursor
 
 ```bash
-claude mcp add --transport http mindex https://api.usemindex.dev/mcp \
+claude mcp add --transport http mindex https://mcp.usemindex.dev \
   --header "Authorization: Bearer sk-your-api-key-here"
 ```
 
@@ -157,7 +157,7 @@ Or add to `.cursor/mcp.json`:
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
@@ -175,7 +175,7 @@ Add to your MCP configuration:
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
@@ -193,7 +193,7 @@ Add to `~/.windsurf/mcp.json`:
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }
@@ -244,7 +244,7 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 - **Transport:** HTTP (Streamable HTTP, MCP spec 2025-03-26)
 - **Protocol:** JSON-RPC 2.0
-- **Endpoint:** `POST https://api.usemindex.dev/mcp`
+- **Endpoint:** `POST https://mcp.usemindex.dev`
 - **Content-Type:** `application/json`
 
 ## Links

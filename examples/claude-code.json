@@ -2,7 +2,7 @@
   "mcpServers": {
     "mindex": {
       "type": "http",
-      "url": "https://api.usemindex.dev/mcp",
+      "url": "https://mcp.usemindex.dev",
       "headers": {
         "Authorization": "Bearer ${MINDEX_API_KEY}"
       }

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mindex": {
+      "type": "streamable-http",
+      "url": "https://api.usemindex.dev/mcp",
+      "headers": {
+        "Authorization": "Bearer sk-your-api-key-here"
+      }
+    }
+  }
+}

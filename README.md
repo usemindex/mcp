@@ -233,12 +233,12 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 ## Rate Limits
 
-| Plan | Requests/min | AI Credits/month | Storage |
-|------|-------------|-----------------|---------|
-| Free | 30 | 100 | 50 MB |
-| Personal | 120 | 5,000 | 1 GB |
-| Team | 300 | 25,000 | 10 GB |
-| Enterprise | Custom | Custom | Custom |
+| Plan | Requests/min | Storage |
+|------|-------------|---------|
+| Free | 30 | 50 MB |
+| Personal | 120 | 1 GB |
+| Team | 300 | 10 GB |
+| Enterprise | Custom | Custom |
 
 ## Protocol Details
 

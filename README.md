@@ -235,10 +235,10 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 | Plan | Requests/min | Storage |
 |------|-------------|---------|
-| Free | 30 | 50 MB |
-| Personal | 120 | 1 GB |
-| Team | 300 | 10 GB |
-| Enterprise | Custom | Custom |
+| Free | 30 | 10 MB |
+| Personal | 60 | 25 GB |
+| Team | 120 | 500 GB |
+| Enterprise | 300 | Custom |
 
 ## Protocol Details
 
@@ -251,11 +251,9 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 - **Website:** [usemindex.dev](https://usemindex.dev)
 - **Dashboard:** [usemindex.dev](https://usemindex.dev)
-- **GitHub:** [github.com/usemindex](https://github.com/usemindex)
-
 ## Support
 
-- **GitHub Issues:** [usemindex/mcp/issues](https://github.com/usemindex/mcp/issues)
+- **Website:** [usemindex.dev](https://usemindex.dev)
 
 ## License
 

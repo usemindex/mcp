@@ -2,18 +2,27 @@
 
 [Mindex](https://usemindex.dev) is an AI-powered knowledge base for developers. Store your documents, and let AI organize, connect, and retrieve them using semantic search and knowledge graphs (GraphRAG).
 
-## Install
+## Install (Recommended: Mindex CLI)
 
 ```bash
-claude mcp add --transport http mindex https://mcp.usemindex.dev \
-  --header "Authorization: Bearer sk-your-api-key-here"
+# Install the Mindex CLI
+curl -fsSL https://raw.githubusercontent.com/usemindex/cli/main/install.sh | sh
+
+# Authenticate
+mindex auth
+
+# Connect to your AI tool — one command
+mindex mcp install claude-code
+mindex mcp install cursor
+mindex mcp install windsurf
+mindex mcp install claude-desktop
 ```
 
 > Get your API key at [usemindex.dev](https://usemindex.dev) — Settings > API Keys
 
-## Quick Start
+## Alternative: Manual Setup
 
-### Option 1: CLI one-liner (Claude Code, Cursor, Windsurf)
+### Option 1: Claude CLI
 
 ```bash
 claude mcp add --transport http mindex https://mcp.usemindex.dev \
@@ -22,7 +31,7 @@ claude mcp add --transport http mindex https://mcp.usemindex.dev \
 
 ### Option 2: JSON config file
 
-Add to `.mcp.json` (Claude Code), `.cursor/mcp.json` (Cursor), or `~/.windsurf/mcp.json` (Windsurf):
+Add to `~/.claude.json` (Claude Code), `.cursor/mcp.json` (Cursor), or `~/.codeium/windsurf/mcp_config.json` (Windsurf):
 
 ```json
 {
@@ -186,7 +195,7 @@ Add to your MCP configuration:
 
 ### Windsurf
 
-Add to `~/.windsurf/mcp.json`:
+Add to `~/.codeium/windsurf/mcp_config.json`:
 
 ```json
 {

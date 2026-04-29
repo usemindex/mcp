@@ -242,12 +242,31 @@ Mindex uses API Keys for MCP authentication. Keys start with `sk-` and are scope
 
 ## Rate Limits
 
+### General API limits (all endpoints)
+
 | Plan | Requests/min | Storage |
 |------|-------------|---------|
 | Free | 30 | 10 MB |
 | Personal | 60 | 25 GB |
 | Team | 120 | 500 GB |
 | Enterprise | 300 | Custom |
+
+### GraphRAG-specific limits
+
+GraphRAG endpoints (`mindex_context`, `mindex_search`) carry an additional
+rolling-window throttle on the Free plan to keep the service sustainable
+for paid tiers. Paid plans are unlimited.
+
+| Plan | GraphRAG calls per 5 hours |
+|------|----------------------------|
+| Free | 300 |
+| Personal | Unlimited |
+| Team | Unlimited |
+| Enterprise | Unlimited |
+
+Hitting the GraphRAG limit returns HTTP `429` with an error message
+indicating the window and retry-after time. For sustained usage of
+GraphRAG queries, Personal plan or higher is recommended.
 
 ## Protocol Details
 
